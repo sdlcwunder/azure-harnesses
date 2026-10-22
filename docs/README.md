@@ -57,18 +57,8 @@ Claude Code's state lives in the Docker volume `azure-harnesses-claude-docs`, mo
 - Do not change `workspaceFolder` (`/workspaces/azure-harnesses`) in `devcontainer.json`: transcripts
   are keyed by that path, and `claude --resume` won't find earlier sessions under a new one.
 - To delete it (logs you out and removes all history): `docker volume rm azure-harnesses-claude-docs`.
-- Backup, from the directory you want the archive in (works in PowerShell and sh; in Git Bash,
-  prefix the command with `MSYS_NO_PATHCONV=1`):
-
-  ```sh
-  docker run --rm -v azure-harnesses-claude-docs:/v -v "${PWD}:/b" alpine tar czf /b/claude-docs.tgz -C /v .
-  ```
-
-- Restore into an empty volume:
-
-  ```sh
-  docker run --rm -v azure-harnesses-claude-docs:/v -v "${PWD}:/b" alpine tar xzf /b/claude-docs.tgz -C /v
-  ```
+- There is no backup. The volume holds login credentials, so don't copy it out of Docker; if it is
+  lost, log in again.
 
 The Slidev dependencies live in a second volume, `azure-harnesses-docs-node-modules`. It is a cache:
 deleting it only costs a reinstall on the next open.
