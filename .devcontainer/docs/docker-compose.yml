@@ -1,0 +1,32 @@
+name: azure-harnesses-docs
+
+services:
+  docs:
+    build: .
+    command: sleep infinity
+    environment:
+      CLAUDE_CONFIG_DIR: /home/node/.claude
+    volumes:
+      - ../..:/workspaces/azure-harnesses:cached
+      - slides-node-modules:/workspaces/azure-harnesses/docs/slides/node_modules
+      - claude-docs:/home/node/.claude
+
+  structurizr:
+    image: structurizr/structurizr:${STRUCTURIZR_VERSION:?set STRUCTURIZR_VERSION in .devcontainer/docs/.env}-noble
+    command: local
+    restart: unless-stopped
+    environment:
+      STRUCTURIZR_AUTOREFRESHINTERVAL: "2000"
+    volumes:
+      - ../../docs/architecture:/usr/local/structurizr
+    ports:
+      - "127.0.0.1:8080:8080"
+
+volumes:
+  slides-node-modules:
+    name: azure-harnesses-docs-node-modules
+  # External so that `docker compose down -v` and rebuilds cannot delete it.
+  # Created by initializeCommand in devcontainer.json.
+  claude-docs:
+    external: true
+    name: azure-harnesses-claude-docs

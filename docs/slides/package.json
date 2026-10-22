@@ -1,0 +1,14 @@
+{
+  "name": "azure-harnesses-slides",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.10.1",
+  "scripts": {
+    "dev": "slidev decks/01-intro/slides.md --port 3030",
+    "build": "slidev build decks/01-intro/slides.md"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^53.0.0",
+    "@slidev/theme-default": "^0.25.0"
+  }
+}

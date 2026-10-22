@@ -1,0 +1,30 @@
+{
+  "name": "docs",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "docs",
+  "runServices": ["docs", "structurizr"],
+  // Must stay fixed: Claude Code keys session transcripts by this path.
+  "workspaceFolder": "/workspaces/azure-harnesses",
+  "remoteUser": "node",
+  "initializeCommand": ["docker", "volume", "create", "azure-harnesses-claude-docs"],
+  "features": {
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
+  },
+  "forwardPorts": [3030],
+  "portsAttributes": {
+    "3030": { "label": "Slidev" }
+  },
+  "postCreateCommand": "sudo chown node:node /home/node/.claude docs/slides/node_modules && pnpm --dir docs/slides install --frozen-lockfile",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "antfu.slidev",
+        "systemticks.c4-dsl-extension",
+        "anthropic.claude-code"
+      ],
+      "settings": {
+        "task.allowAutomaticTasks": "on"
+      }
+    }
+  }
+}

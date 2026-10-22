@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <rect x="1" y="1" width="798" height="398" rx="16" fill="#f4f6fa" stroke="#8a94a6" stroke-width="2" stroke-dasharray="10 8"/>
+  <text x="400" y="190" text-anchor="middle" font-family="sans-serif" font-size="32" fill="#4a5568">Diagram placeholder</text>
+  <text x="400" y="235" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#718096">Replace with an export from Structurizr</text>
+</svg>

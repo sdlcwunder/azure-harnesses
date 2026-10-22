@@ -1,0 +1,192 @@
+{
+  "configuration" : { },
+  "description" : "C4 model of the Azure harness.",
+  "documentation" : { },
+  "id" : 1,
+  "lastModifiedDate" : "2026-10-22T21:40:57Z",
+  "model" : {
+    "people" : [ {
+      "description" : "Builds and runs the harness, and reviews the agent's work.",
+      "id" : "1",
+      "name" : "Developer",
+      "properties" : {
+        "structurizr.dsl.identifier" : "developer"
+      },
+      "relationships" : [ {
+        "description" : "Works in",
+        "destinationId" : "3",
+        "id" : "7",
+        "sourceId" : "1",
+        "tags" : "Relationship",
+        "technology" : "VS Code"
+      }, {
+        "description" : "Works in",
+        "destinationId" : "2",
+        "id" : "8",
+        "linkedRelationshipId" : "7",
+        "sourceId" : "1",
+        "technology" : "VS Code"
+      }, {
+        "description" : "Reviews pull requests in",
+        "destinationId" : "6",
+        "id" : "9",
+        "sourceId" : "1",
+        "tags" : "Relationship",
+        "technology" : "HTTPS"
+      } ],
+      "tags" : "Element,Person"
+    } ],
+    "softwareSystems" : [ {
+      "containers" : [ {
+        "description" : "Developer tools and the coding agent, isolated from the host.",
+        "documentation" : { },
+        "id" : "3",
+        "name" : "Dev container",
+        "properties" : {
+          "structurizr.dsl.identifier" : "harness.devContainer"
+        },
+        "relationships" : [ {
+          "description" : "Runs",
+          "destinationId" : "4",
+          "id" : "10",
+          "sourceId" : "3",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "Docker, VS Code Dev Containers"
+      }, {
+        "description" : "Plans and makes code and infrastructure changes.",
+        "documentation" : { },
+        "id" : "4",
+        "name" : "Coding agent",
+        "properties" : {
+          "structurizr.dsl.identifier" : "harness.agent"
+        },
+        "relationships" : [ {
+          "description" : "Deploys to and tests against",
+          "destinationId" : "5",
+          "id" : "11",
+          "sourceId" : "4",
+          "tags" : "Relationship",
+          "technology" : "Azure CLI"
+        }, {
+          "description" : "Pushes branches and opens pull requests to",
+          "destinationId" : "6",
+          "id" : "12",
+          "sourceId" : "4",
+          "tags" : "Relationship",
+          "technology" : "Git, GitHub API"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "Claude Code"
+      }, {
+        "description" : "Sandbox subscription with scoped permissions where the agent deploys and tests.",
+        "documentation" : { },
+        "id" : "5",
+        "name" : "Restricted Azure environment",
+        "properties" : {
+          "structurizr.dsl.identifier" : "harness.azure"
+        },
+        "tags" : "Element,Container",
+        "technology" : "Azure"
+      }, {
+        "description" : "Source of truth for code, infrastructure and docs.",
+        "documentation" : { },
+        "id" : "6",
+        "name" : "GitHub repository",
+        "properties" : {
+          "structurizr.dsl.identifier" : "harness.repo"
+        },
+        "tags" : "Element,Container",
+        "technology" : "GitHub"
+      } ],
+      "description" : "Lets a coding agent work against Azure without access to production credentials.",
+      "documentation" : { },
+      "id" : "2",
+      "name" : "Azure harness",
+      "properties" : {
+        "structurizr.dsl.identifier" : "harness"
+      },
+      "tags" : "Element,Software System"
+    } ]
+  },
+  "name" : "Azure harness",
+  "properties" : {
+    "structurizr.inspection.error" : "4",
+    "structurizr.dsl" : "d29ya3NwYWNlICJBenVyZSBoYXJuZXNzIiAiQzQgbW9kZWwgb2YgdGhlIEF6dXJlIGhhcm5lc3MuIiB7CgogICAgIWlkZW50aWZpZXJzIGhpZXJhcmNoaWNhbAoKICAgIG1vZGVsIHsKICAgICAgICBkZXZlbG9wZXIgPSBwZXJzb24gIkRldmVsb3BlciIgIkJ1aWxkcyBhbmQgcnVucyB0aGUgaGFybmVzcywgYW5kIHJldmlld3MgdGhlIGFnZW50J3Mgd29yay4iCgogICAgICAgIGhhcm5lc3MgPSBzb2Z0d2FyZVN5c3RlbSAiQXp1cmUgaGFybmVzcyIgIkxldHMgYSBjb2RpbmcgYWdlbnQgd29yayBhZ2FpbnN0IEF6dXJlIHdpdGhvdXQgYWNjZXNzIHRvIHByb2R1Y3Rpb24gY3JlZGVudGlhbHMuIiB7CiAgICAgICAgICAgIGRldkNvbnRhaW5lciA9IGNvbnRhaW5lciAiRGV2IGNvbnRhaW5lciIgIkRldmVsb3BlciB0b29scyBhbmQgdGhlIGNvZGluZyBhZ2VudCwgaXNvbGF0ZWQgZnJvbSB0aGUgaG9zdC4iICJEb2NrZXIsIFZTIENvZGUgRGV2IENvbnRhaW5lcnMiCiAgICAgICAgICAgIGFnZW50ID0gY29udGFpbmVyICJDb2RpbmcgYWdlbnQiICJQbGFucyBhbmQgbWFrZXMgY29kZSBhbmQgaW5mcmFzdHJ1Y3R1cmUgY2hhbmdlcy4iICJDbGF1ZGUgQ29kZSIKICAgICAgICAgICAgYXp1cmUgPSBjb250YWluZXIgIlJlc3RyaWN0ZWQgQXp1cmUgZW52aXJvbm1lbnQiICJTYW5kYm94IHN1YnNjcmlwdGlvbiB3aXRoIHNjb3BlZCBwZXJtaXNzaW9ucyB3aGVyZSB0aGUgYWdlbnQgZGVwbG95cyBhbmQgdGVzdHMuIiAiQXp1cmUiCiAgICAgICAgICAgIHJlcG8gPSBjb250YWluZXIgIkdpdEh1YiByZXBvc2l0b3J5IiAiU291cmNlIG9mIHRydXRoIGZvciBjb2RlLCBpbmZyYXN0cnVjdHVyZSBhbmQgZG9jcy4iICJHaXRIdWIiCiAgICAgICAgfQoKICAgICAgICBkZXZlbG9wZXIgLT4gaGFybmVzcy5kZXZDb250YWluZXIgIldvcmtzIGluIiAiVlMgQ29kZSIKICAgICAgICBkZXZlbG9wZXIgLT4gaGFybmVzcy5yZXBvICJSZXZpZXdzIHB1bGwgcmVxdWVzdHMgaW4iICJIVFRQUyIKICAgICAgICBoYXJuZXNzLmRldkNvbnRhaW5lciAtPiBoYXJuZXNzLmFnZW50ICJSdW5zIgogICAgICAgIGhhcm5lc3MuYWdlbnQgLT4gaGFybmVzcy5henVyZSAiRGVwbG95cyB0byBhbmQgdGVzdHMgYWdhaW5zdCIgIkF6dXJlIENMSSIKICAgICAgICBoYXJuZXNzLmFnZW50IC0+IGhhcm5lc3MucmVwbyAiUHVzaGVzIGJyYW5jaGVzIGFuZCBvcGVucyBwdWxsIHJlcXVlc3RzIHRvIiAiR2l0LCBHaXRIdWIgQVBJIgogICAgfQoKICAgIHZpZXdzIHsKICAgICAgICBzeXN0ZW1Db250ZXh0IGhhcm5lc3MgIlN5c3RlbUNvbnRleHQiICJXaG8gdXNlcyB0aGUgQXp1cmUgaGFybmVzcy4iIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgfQoKICAgICAgICBjb250YWluZXIgaGFybmVzcyAiQ29udGFpbmVycyIgIlRoZSBwYXJ0cyBvZiB0aGUgQXp1cmUgaGFybmVzcyBhbmQgaG93IHRoZXkgaW50ZXJhY3QuIiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgIH0KCiAgICAgICAgc3R5bGVzIHsKICAgICAgICAgICAgZWxlbWVudCAiUGVyc29uIiB7CiAgICAgICAgICAgICAgICBzaGFwZSBwZXJzb24KICAgICAgICAgICAgfQogICAgICAgIH0KICAgIH0KfQ==",
+    "structurizr.inspection.info" : "0",
+    "structurizr.inspection.ignore" : "0",
+    "structurizr.inspection.warning" : "0"
+  },
+  "views" : {
+    "configuration" : {
+      "styles" : {
+        "elements" : [ {
+          "shape" : "Person",
+          "tag" : "Person"
+        } ]
+      },
+      "terminology" : { }
+    },
+    "containerViews" : [ {
+      "description" : "The parts of the Azure harness and how they interact.",
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "3",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "4",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "5",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "6",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "key" : "Containers",
+      "name" : "Container View: Azure harness",
+      "order" : 2,
+      "relationships" : [ {
+        "id" : "10"
+      }, {
+        "id" : "11"
+      }, {
+        "id" : "12"
+      }, {
+        "id" : "7"
+      }, {
+        "id" : "9"
+      } ],
+      "softwareSystemId" : "2"
+    } ],
+    "systemContextViews" : [ {
+      "description" : "Who uses the Azure harness.",
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "2",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "key" : "SystemContext",
+      "name" : "System Context View: Azure harness",
+      "order" : 1,
+      "relationships" : [ {
+        "id" : "8"
+      } ],
+      "softwareSystemId" : "2"
+    } ]
+  }
+}
