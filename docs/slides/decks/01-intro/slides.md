@@ -28,7 +28,7 @@ Walk through the agenda quickly; the architecture slide is the main point of thi
 
 # Architecture
 
-![Azure harness containers](/diagrams/placeholder.svg)
+![Azure harness containers](/diagrams/Containers-dark.png)
 
 <!--
 Explain each container and the trust boundary between the dev container and the restricted Azure environment.

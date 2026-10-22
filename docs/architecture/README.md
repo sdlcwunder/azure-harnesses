@@ -30,8 +30,8 @@ about 5 seconds of the change (or press **Save**). `workspace.json` then shows u
 
 1. Open the view in the UI.
 2. Use the export button in the diagram toolbar and choose **PNG** (or **SVG**).
-3. Save the file into `docs/slides/public/diagrams/` in your checkout, named after the view,
-   for example `containers.png`.
-4. Reference it from a deck as `![Containers](/diagrams/containers.png)`.
+3. Save the file into `docs/slides/public/diagrams/` in your checkout. The UI suggests a name made
+   of the view key and the UI theme, for example `Containers-dark.png`; keep it.
+4. Reference it from a deck as `![Containers](/diagrams/Containers-dark.png)`.
 
 Re-export after every model change that affects the view; the image doesn't update by itself.

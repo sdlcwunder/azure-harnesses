@@ -12,7 +12,7 @@ workspace "Azure harness" "C4 model of the Azure harness." {
             repo = container "GitHub repository" "Source of truth for code, infrastructure and docs." "GitHub"
         }
 
-        developer -> harness.devContainer "Works in" "VS Code"
+        developer -> harness.devContainer "Works in" "VS Code IDE"
         developer -> harness.repo "Reviews pull requests in" "HTTPS"
         harness.devContainer -> harness.agent "Runs"
         harness.agent -> harness.azure "Deploys to and tests against" "Azure CLI"

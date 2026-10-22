@@ -3,7 +3,7 @@
   "description" : "C4 model of the Azure harness.",
   "documentation" : { },
   "id" : 1,
-  "lastModifiedDate" : "2026-10-22T21:40:57Z",
+  "lastModifiedDate" : "2026-10-22T23:07:03Z",
   "model" : {
     "people" : [ {
       "description" : "Builds and runs the harness, and reviews the agent's work.",
@@ -18,14 +18,14 @@
         "id" : "7",
         "sourceId" : "1",
         "tags" : "Relationship",
-        "technology" : "VS Code"
+        "technology" : "VS Code IDE"
       }, {
         "description" : "Works in",
         "destinationId" : "2",
         "id" : "8",
         "linkedRelationshipId" : "7",
         "sourceId" : "1",
-        "technology" : "VS Code"
+        "technology" : "VS Code IDE"
       }, {
         "description" : "Reviews pull requests in",
         "destinationId" : "6",
@@ -113,7 +113,7 @@
   "name" : "Azure harness",
   "properties" : {
     "structurizr.inspection.error" : "4",
-    "structurizr.dsl" : "d29ya3NwYWNlICJBenVyZSBoYXJuZXNzIiAiQzQgbW9kZWwgb2YgdGhlIEF6dXJlIGhhcm5lc3MuIiB7CgogICAgIWlkZW50aWZpZXJzIGhpZXJhcmNoaWNhbAoKICAgIG1vZGVsIHsKICAgICAgICBkZXZlbG9wZXIgPSBwZXJzb24gIkRldmVsb3BlciIgIkJ1aWxkcyBhbmQgcnVucyB0aGUgaGFybmVzcywgYW5kIHJldmlld3MgdGhlIGFnZW50J3Mgd29yay4iCgogICAgICAgIGhhcm5lc3MgPSBzb2Z0d2FyZVN5c3RlbSAiQXp1cmUgaGFybmVzcyIgIkxldHMgYSBjb2RpbmcgYWdlbnQgd29yayBhZ2FpbnN0IEF6dXJlIHdpdGhvdXQgYWNjZXNzIHRvIHByb2R1Y3Rpb24gY3JlZGVudGlhbHMuIiB7CiAgICAgICAgICAgIGRldkNvbnRhaW5lciA9IGNvbnRhaW5lciAiRGV2IGNvbnRhaW5lciIgIkRldmVsb3BlciB0b29scyBhbmQgdGhlIGNvZGluZyBhZ2VudCwgaXNvbGF0ZWQgZnJvbSB0aGUgaG9zdC4iICJEb2NrZXIsIFZTIENvZGUgRGV2IENvbnRhaW5lcnMiCiAgICAgICAgICAgIGFnZW50ID0gY29udGFpbmVyICJDb2RpbmcgYWdlbnQiICJQbGFucyBhbmQgbWFrZXMgY29kZSBhbmQgaW5mcmFzdHJ1Y3R1cmUgY2hhbmdlcy4iICJDbGF1ZGUgQ29kZSIKICAgICAgICAgICAgYXp1cmUgPSBjb250YWluZXIgIlJlc3RyaWN0ZWQgQXp1cmUgZW52aXJvbm1lbnQiICJTYW5kYm94IHN1YnNjcmlwdGlvbiB3aXRoIHNjb3BlZCBwZXJtaXNzaW9ucyB3aGVyZSB0aGUgYWdlbnQgZGVwbG95cyBhbmQgdGVzdHMuIiAiQXp1cmUiCiAgICAgICAgICAgIHJlcG8gPSBjb250YWluZXIgIkdpdEh1YiByZXBvc2l0b3J5IiAiU291cmNlIG9mIHRydXRoIGZvciBjb2RlLCBpbmZyYXN0cnVjdHVyZSBhbmQgZG9jcy4iICJHaXRIdWIiCiAgICAgICAgfQoKICAgICAgICBkZXZlbG9wZXIgLT4gaGFybmVzcy5kZXZDb250YWluZXIgIldvcmtzIGluIiAiVlMgQ29kZSIKICAgICAgICBkZXZlbG9wZXIgLT4gaGFybmVzcy5yZXBvICJSZXZpZXdzIHB1bGwgcmVxdWVzdHMgaW4iICJIVFRQUyIKICAgICAgICBoYXJuZXNzLmRldkNvbnRhaW5lciAtPiBoYXJuZXNzLmFnZW50ICJSdW5zIgogICAgICAgIGhhcm5lc3MuYWdlbnQgLT4gaGFybmVzcy5henVyZSAiRGVwbG95cyB0byBhbmQgdGVzdHMgYWdhaW5zdCIgIkF6dXJlIENMSSIKICAgICAgICBoYXJuZXNzLmFnZW50IC0+IGhhcm5lc3MucmVwbyAiUHVzaGVzIGJyYW5jaGVzIGFuZCBvcGVucyBwdWxsIHJlcXVlc3RzIHRvIiAiR2l0LCBHaXRIdWIgQVBJIgogICAgfQoKICAgIHZpZXdzIHsKICAgICAgICBzeXN0ZW1Db250ZXh0IGhhcm5lc3MgIlN5c3RlbUNvbnRleHQiICJXaG8gdXNlcyB0aGUgQXp1cmUgaGFybmVzcy4iIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgfQoKICAgICAgICBjb250YWluZXIgaGFybmVzcyAiQ29udGFpbmVycyIgIlRoZSBwYXJ0cyBvZiB0aGUgQXp1cmUgaGFybmVzcyBhbmQgaG93IHRoZXkgaW50ZXJhY3QuIiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgIH0KCiAgICAgICAgc3R5bGVzIHsKICAgICAgICAgICAgZWxlbWVudCAiUGVyc29uIiB7CiAgICAgICAgICAgICAgICBzaGFwZSBwZXJzb24KICAgICAgICAgICAgfQogICAgICAgIH0KICAgIH0KfQ==",
+    "structurizr.dsl" : "d29ya3NwYWNlICJBenVyZSBoYXJuZXNzIiAiQzQgbW9kZWwgb2YgdGhlIEF6dXJlIGhhcm5lc3MuIiB7CgogICAgIWlkZW50aWZpZXJzIGhpZXJhcmNoaWNhbAoKICAgIG1vZGVsIHsKICAgICAgICBkZXZlbG9wZXIgPSBwZXJzb24gIkRldmVsb3BlciIgIkJ1aWxkcyBhbmQgcnVucyB0aGUgaGFybmVzcywgYW5kIHJldmlld3MgdGhlIGFnZW50J3Mgd29yay4iCgogICAgICAgIGhhcm5lc3MgPSBzb2Z0d2FyZVN5c3RlbSAiQXp1cmUgaGFybmVzcyIgIkxldHMgYSBjb2RpbmcgYWdlbnQgd29yayBhZ2FpbnN0IEF6dXJlIHdpdGhvdXQgYWNjZXNzIHRvIHByb2R1Y3Rpb24gY3JlZGVudGlhbHMuIiB7CiAgICAgICAgICAgIGRldkNvbnRhaW5lciA9IGNvbnRhaW5lciAiRGV2IGNvbnRhaW5lciIgIkRldmVsb3BlciB0b29scyBhbmQgdGhlIGNvZGluZyBhZ2VudCwgaXNvbGF0ZWQgZnJvbSB0aGUgaG9zdC4iICJEb2NrZXIsIFZTIENvZGUgRGV2IENvbnRhaW5lcnMiCiAgICAgICAgICAgIGFnZW50ID0gY29udGFpbmVyICJDb2RpbmcgYWdlbnQiICJQbGFucyBhbmQgbWFrZXMgY29kZSBhbmQgaW5mcmFzdHJ1Y3R1cmUgY2hhbmdlcy4iICJDbGF1ZGUgQ29kZSIKICAgICAgICAgICAgYXp1cmUgPSBjb250YWluZXIgIlJlc3RyaWN0ZWQgQXp1cmUgZW52aXJvbm1lbnQiICJTYW5kYm94IHN1YnNjcmlwdGlvbiB3aXRoIHNjb3BlZCBwZXJtaXNzaW9ucyB3aGVyZSB0aGUgYWdlbnQgZGVwbG95cyBhbmQgdGVzdHMuIiAiQXp1cmUiCiAgICAgICAgICAgIHJlcG8gPSBjb250YWluZXIgIkdpdEh1YiByZXBvc2l0b3J5IiAiU291cmNlIG9mIHRydXRoIGZvciBjb2RlLCBpbmZyYXN0cnVjdHVyZSBhbmQgZG9jcy4iICJHaXRIdWIiCiAgICAgICAgfQoKICAgICAgICBkZXZlbG9wZXIgLT4gaGFybmVzcy5kZXZDb250YWluZXIgIldvcmtzIGluIiAiVlMgQ29kZSBJREUiCiAgICAgICAgZGV2ZWxvcGVyIC0+IGhhcm5lc3MucmVwbyAiUmV2aWV3cyBwdWxsIHJlcXVlc3RzIGluIiAiSFRUUFMiCiAgICAgICAgaGFybmVzcy5kZXZDb250YWluZXIgLT4gaGFybmVzcy5hZ2VudCAiUnVucyIKICAgICAgICBoYXJuZXNzLmFnZW50IC0+IGhhcm5lc3MuYXp1cmUgIkRlcGxveXMgdG8gYW5kIHRlc3RzIGFnYWluc3QiICJBenVyZSBDTEkiCiAgICAgICAgaGFybmVzcy5hZ2VudCAtPiBoYXJuZXNzLnJlcG8gIlB1c2hlcyBicmFuY2hlcyBhbmQgb3BlbnMgcHVsbCByZXF1ZXN0cyB0byIgIkdpdCwgR2l0SHViIEFQSSIKICAgIH0KCiAgICB2aWV3cyB7CiAgICAgICAgc3lzdGVtQ29udGV4dCBoYXJuZXNzICJTeXN0ZW1Db250ZXh0IiAiV2hvIHVzZXMgdGhlIEF6dXJlIGhhcm5lc3MuIiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgIH0KCiAgICAgICAgY29udGFpbmVyIGhhcm5lc3MgIkNvbnRhaW5lcnMiICJUaGUgcGFydHMgb2YgdGhlIEF6dXJlIGhhcm5lc3MgYW5kIGhvdyB0aGV5IGludGVyYWN0LiIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CgogICAgICAgIHN0eWxlcyB7CiAgICAgICAgICAgIGVsZW1lbnQgIlBlcnNvbiIgewogICAgICAgICAgICAgICAgc2hhcGUgcGVyc29uCiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9Cn0=",
     "structurizr.inspection.info" : "0",
     "structurizr.inspection.ignore" : "0",
     "structurizr.inspection.warning" : "0"
