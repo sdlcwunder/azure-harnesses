@@ -14,11 +14,15 @@ Each episode SHALL have its own deck at `docs/slides/decks/NN-slug/slides.md`. T
 - **THEN** `http://localhost:3030` shows the `01-intro` deck with its title, agenda and diagram slides, and `/presenter` shows the speaker notes
 
 ### Requirement: Dev server starts automatically
-The Slidev dev server SHALL start automatically when the workspace folder is opened in the devcontainer, listen on port 3030, and hot-reload when the deck file changes. `/`, `/presenter` and `/overview` SHALL work.
+The Slidev dev server SHALL start automatically when the workspace folder is opened in the devcontainer, and SHALL NOT be started when the folder is opened locally on the host. It SHALL listen on port 3030 and hot-reload when the deck file changes. `/`, `/presenter` and `/overview` SHALL work.
 
 #### Scenario: Auto-start on folder open
 - **WHEN** the developer opens the workspace in the devcontainer
 - **THEN** the Slidev dev server is started without manual commands and serves on port 3030
+
+#### Scenario: Nothing starts on the host
+- **WHEN** the developer opens the repository folder locally, outside the devcontainer
+- **THEN** no Slidev dev server or task is started
 
 #### Scenario: Hot reload
 - **WHEN** the developer saves a change to the active deck's `slides.md`

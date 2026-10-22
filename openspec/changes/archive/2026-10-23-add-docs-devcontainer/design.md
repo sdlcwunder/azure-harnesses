@@ -91,14 +91,18 @@ Run `npx skills add slidevjs/slidev` from `docs/slides/`, choose Claude Code onl
 
 ### D7. Everything else follows the plan
 
-The following follow the plan as written: Dockerfile base `mcr.microsoft.com/devcontainers/javascript-node:22` + `corepack enable`; the Claude Code feature `ghcr.io/anthropics/devcontainer-features/claude-code:1.0`; `forwardPorts: [3030]`; the VS Code extensions; `task.allowAutomaticTasks`; the `slidev: dev` folder-open task; `.mcp.json` and `.claude/settings.json` contents; the rules; the CLAUDE.md files; `.gitignore` and `.gitattributes`. The only path changes are `public/diagrams` → `diagrams` in the slides rule, the READMEs and `docs/CLAUDE.md`.
+The following follow the plan as written: Dockerfile base `mcr.microsoft.com/devcontainers/javascript-node:22` + `corepack enable`; the Claude Code feature `ghcr.io/anthropics/devcontainer-features/claude-code:1.0`; `forwardPorts: [3030]`; the VS Code extensions; the `slidev: dev` task (manual only, see D9); `.mcp.json` and `.claude/settings.json` contents; the rules; the CLAUDE.md files; `.gitignore` and `.gitattributes`. The only path changes are `public/diagrams` → `diagrams` in the slides rule, the READMEs and `docs/CLAUDE.md`.
+
+### D9. Dev server started by `postAttachCommand`, not a folder-open task
+
+The plan's `runOptions.runOn: folderOpen` task lives in `.vscode/tasks.json`, which VS Code also reads when the folder is opened locally, so it tried to start Slidev on the host too. There's no way to limit a task to one environment. Instead, `devcontainer.json` sets `postAttachCommand: pnpm --dir docs/slides dev`, which only runs in the container, each time VS Code attaches. The `slidev: dev` task stays for manual restarts, without `runOn`, and `task.allowAutomaticTasks` is dropped. If a second window attaches, its server exits with "port 3030 already in use", which is harmless.
 
 ## Risks / Trade-offs
 
-- [The external volume isn't removed when someone "cleans up" the project] → Documented in `docs/README.md` with the exact `docker volume rm` command and a one-line `tar` backup/restore recipe.
+- [The external volume isn't removed when someone "cleans up" the project] → Documented in `docs/README.md` with the exact `docker volume rm` command.
+- [Losing the volume loses session history] → Accepted; there is deliberately no backup recipe. An archive of the volume would put OAuth credentials in a plain file outside Docker, and a restored refresh token may already be stale. Losing the volume costs a login and old transcripts.
 - [The `initializeCommand` runs on the host and needs `docker` on PATH] → Docker Desktop provides it. The command is idempotent and prints the volume name on every open.
 - [Older devcontainer CLI versions ignore the compose top-level `name`] → Only container names are affected. Volumes carry explicit names (D3).
-- [`task.allowAutomaticTasks` may not be honoured from devcontainer settings in every VS Code version] → VS Code then asks once to allow automatic tasks. The README mentions it.
 - [Relative image paths in Slidev fail in `build`] → Verified explicitly in tasks. If they fail, use the D4 fallback.
 - [The Claude volume holds OAuth credentials in plain files] → It is reachable only from this container, and the harness environment uses its own volume. Never mount it elsewhere.
 - [Changing `workspaceFolder` orphans transcripts] → Called out as a fixed value in README and CLAUDE.md.
