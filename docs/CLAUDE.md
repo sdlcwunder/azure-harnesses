@@ -2,8 +2,9 @@
 
 ## Slides (`docs/slides/`)
 
-- The dev server starts automatically when the folder opens in the devcontainer (VS Code task
-  `slidev: dev` in `.vscode/tasks.json`). To start it by hand: `pnpm --dir docs/slides dev`.
+- The dev server starts automatically when VS Code attaches to the devcontainer (`postAttachCommand`
+  in `.devcontainer/docs/devcontainer.json`). To start it by hand: `pnpm --dir docs/slides dev`
+  or the `slidev: dev` task.
 - It serves the deck named in the `dev` script of `docs/slides/package.json` at http://localhost:3030
   (`/presenter`, `/overview`). Its MCP endpoint is http://localhost:3030/__mcp (`slidev` server).
   If `slidev` shows as disconnected, the dev server wasn't up yet: start it, then reconnect via `/mcp`.

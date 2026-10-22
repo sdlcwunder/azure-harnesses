@@ -6,8 +6,7 @@
       "type": "shell",
       "command": "pnpm --dir docs/slides dev",
       "isBackground": true,
-      "problemMatcher": [],
-      "runOptions": { "runOn": "folderOpen" }
+      "problemMatcher": []
     }
   ]
 }

@@ -15,16 +15,15 @@
     "3030": { "label": "Slidev" }
   },
   "postCreateCommand": "sudo chown node:node /home/node/.claude docs/slides/node_modules && pnpm --dir docs/slides install --frozen-lockfile",
+  // Runs only in the container on each attach, unlike a folderOpen task, which also fires on the host.
+  "postAttachCommand": "pnpm --dir docs/slides dev",
   "customizations": {
     "vscode": {
       "extensions": [
         "antfu.slidev",
         "systemticks.c4-dsl-extension",
         "anthropic.claude-code"
-      ],
-      "settings": {
-        "task.allowAutomaticTasks": "on"
-      }
+      ]
     }
   }
 }

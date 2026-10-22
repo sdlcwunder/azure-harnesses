@@ -11,8 +11,9 @@ in a devcontainer; the host only needs Docker and VS Code with the Dev Container
 This starts two containers: `docs` (Node 22, pnpm, Slidev, Claude Code — where you and Claude work)
 and `structurizr` (the diagram renderer). The first open installs the Slidev dependencies.
 
-The first time, VS Code may ask whether to allow automatic tasks in this folder. Allow it: that is
-what starts the Slidev dev server when the folder opens.
+Each time VS Code attaches to the container, it starts the Slidev dev server (`postAttachCommand`)
+in a terminal. Nothing starts when the folder is opened locally on the host. If you stop the server,
+restart it with the `slidev: dev` task (**Tasks: Run Task**).
 
 ### `.git` must be a directory
 
