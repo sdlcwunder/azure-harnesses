@@ -1,0 +1,6 @@
+{
+  "enabledMcpjsonServers": ["slidev"],
+  "permissions": {
+    "allow": ["Bash(pnpm --dir docs/slides:*)"]
+  }
+}

@@ -1,0 +1,6 @@
+node_modules/
+docs/slides/**/dist/
+.slidev/
+CLAUDE.local.md
+.claude/settings.local.json
+docs/architecture/.structurizr/
